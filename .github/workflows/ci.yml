@@ -1,0 +1,67 @@
+# linting check of radis-app
+name: 🌱 CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  frontend-test:
+    name: 🧪 frontend-ci
+    runs-on: ubuntu-latest
+    # defaults:
+    #   run:
+    #     working-directory: frontend
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+          cache-dependency-path: './frontend'
+
+      - name: Install Node.js dependencies
+        run: yarn install --frozen-lockfile
+      - name: Linting check
+        run: cd frontend && yarn lint
+      - name: Type check
+        run: cd frontend && yarn type-check
+      - name: Run tests and coverage
+        run: cd frontend && yarn test && yarn test:coverage
+      - name: ✅ Upload coverage to Codecov
+        uses: codecov/codecov-action@v3.1.0
+        with:
+          flags: frontend
+  backend-test:
+    name: 🧪 backend-ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+          cache: "pip" # caching pip dependencies
+      - name: Install dependencies
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests and coverage
+        run: |
+          cd backend
+          pytest
+          coverage run --source=src -m pytest -v __tests__/ && coverage report -m && coverage html && coverage xml
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          flags: backend
+          files: ./backend/coverage.xml
