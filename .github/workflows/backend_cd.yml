@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: backend
-          tags:  "arunavabasu03/radisapp_backend:latest" 
+          tags:  "SankarGaneshb/radisapp_backend:latest" 
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
