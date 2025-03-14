@@ -80,3 +80,5 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
+        upload: true # Ensure the analysis results are always uploaded
+upload: true # Ensure the analysis results are always uploaded
