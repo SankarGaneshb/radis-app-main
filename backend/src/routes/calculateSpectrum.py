@@ -2,6 +2,7 @@ import radis
 import numpy as np
 from fastapi import APIRouter
 import astropy.units as u
+import logging
 from src.models.payload import Payload
 from src.helpers.calculateSpectrum import calculate_spectrum
 
@@ -23,8 +24,8 @@ async def calc_spectrum(payload: Payload):
     except radis.misc.warning.EmptyDatabaseError:
         return {"error": "No line in the specified wavenumber range"}
     except Exception as exc:
-        print("Error", exc)
-        return {"error": str(exc)}
+        logging.error("Error occurred: %s", exc, exc_info=True)
+        return {"error": "An internal error has occurred!"}
     else:
 
         wunit = spectrum.get_waveunit()
