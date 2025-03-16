@@ -24,8 +24,9 @@ async def download_spec(payload: Payload, background_tasks: BackgroundTasks):
     except radis.misc.warning.EmptyDatabaseError:
         return {"error": "No line in the specified wavenumber range"}
     except Exception as exc:
-        print("Error", exc)
-        return {"error": str(exc)}
+        import logging
+        logging.error("An error occurred: %s", exc, exc_info=True)
+        return {"error": "An internal error has occurred. Please try again later."}
     else:
         spectrum.store(file_path, compress=True, if_exists_then="replace")
         # running as a background task to delete the .spec file after giving the file response back
