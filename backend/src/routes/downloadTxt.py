@@ -7,6 +7,7 @@ from src.helpers.deleteDownloadDirectory import delete_spec
 from src.helpers.calculateSpectrum import calculate_spectrum
 from src.constants.constants import  DOWNLOADED_TXT_DIRECTORY
 from src.helpers.createDownloadDirectory import create_download_directory
+import logging
 
 router = APIRouter()
 
@@ -25,8 +26,8 @@ async def download_txt(payload: Payload, background_tasks: BackgroundTasks):
     except radis.misc.warning.EmptyDatabaseError:
         return {"error": "No line in the specified wavenumber range"}
     except Exception as exc:
-        print("Error", exc)
-        return {"error": str(exc)}
+        logging.error("Error occurred: %s", exc)
+        return {"error": "An internal error has occurred!"}
     else:
         
         wunit = spectrum.get_waveunit()
