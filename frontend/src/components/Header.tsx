@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
             <GitHubIcon
               style={{ color: "#0A6ACA", fontSize: "28" }}
               onClick={() =>
-                (window.location.href = "https://github.com/suzil/radis-app")
+                (window.location.href = "https://github.com/SankarGaneshb/radis-app")
               }
             />
           </IconButton>
