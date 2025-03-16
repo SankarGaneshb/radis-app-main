@@ -1,6 +1,6 @@
 ## 🌱 Radis App
 
-[![🏓 Production Deployment ](https://github.com/arunavabasu-03/radis-app/actions/workflows/backend_cd.yml/badge.svg)](https://github.com/arunavabasu-03/radis-app/actions/workflows/backend_cd.yml)
+[![🏓 Production Deployment ](https://github.com/SankarGaneshb/radis-app/actions/workflows/backend_cd.yml/badge.svg)](https://github.com/SankarGaneshb/radis-app/actions/workflows/backend_cd.yml)
   
 **RADIS app** is a web application for [Radis](https://github.com/radis/radis)  high-resolution infrared molecular spectra. Instead of writing code, this project aims to create an intuitive user interface (UI).
 
@@ -48,7 +48,7 @@ We created this app with the intention of giving both researchers and non-resear
 
 👉 some of main features :                
 
-- Ploting spectra
+- Ploting spectra-
 <img width="1295" alt="plot" src="https://user-images.githubusercontent.com/73842340/188674106-84ca91d8-a290-4030-826b-5d31eebaeee1.png">
 
 - Exporing spectra
@@ -59,4 +59,4 @@ We created this app with the intention of giving both researchers and non-resear
                  
 ## ✅ **License**
 
-[LGPL-3.0 license](https://github.com/suzil/radis-app/blob/main/LICENSE)
+[LGPL-3.0 license](https://github.com/SankarGaneshb/radis-app/blob/main/LICENSE)
