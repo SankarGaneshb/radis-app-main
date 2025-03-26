@@ -1,6 +1,6 @@
 ## 🌱 Radis App
 
-[![🏓 Production Deployment ](https://github.com/SankarGaneshb/radis-app/actions/workflows/backend_cd.yml/badge.svg)](https://github.com/SankarGaneshb/radis-app/actions/workflows/backend_cd.yml)
+[![🏓 Production Deployment ](https://github.com//SankarGaneshb/radis-app-main/actions/workflows/github-code-scanning/codeql.yml/badge.svg)](https://github.com//SankarGaneshb/radis-app-main/actions/workflows/github-code-scanning/codeql.yml)
   
 **RADIS app** is a web application for [Radis](https://github.com/radis/radis)  high-resolution infrared molecular spectra. Instead of writing code, this project aims to create an intuitive user interface (UI).
 
